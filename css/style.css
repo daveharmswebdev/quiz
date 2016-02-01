@@ -82,6 +82,10 @@ html { font-size: 100%; }
     position: static;
   }
 
+  .main {
+    margin: 0;
+  }
+
   .aside {
     max-width: 20rem;
   }

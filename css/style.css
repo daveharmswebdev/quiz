@@ -1,0 +1,92 @@
+/* Small screens (default) */
+html { font-size: 100%; }
+
+/* Medium screens (640px) */
+@media (min-width: 40rem) {
+  html { font-size: 112%; }
+}
+
+/* Large screens (1024px) */
+/*@media (min-width: 64rem) {
+  html { font-size: 120%; }
+}*/
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@import "compass/css3";
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+
+  font-weight: bold;
+  text-align: center;
+  border: 3px solid grey;
+  justify-content: center;
+}
+
+.item {
+  height: 16rem;
+  width: 24rem;
+  background-color: red;
+  text-align: left;
+  margin: 1rem;
+  padding: 0.75rem;
+  border: 3px solid black;
+}
+
+
+.aside {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.left {
+  position: fixed;
+  background-color: pink;
+}
+
+.main {
+  margin: 7rem 0;
+}
+
+.right {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  background-color: lightblue;
+}
+
+@media (min-width: 64rem) {
+  .wrapper {
+    flex-direction: row;
+  }
+
+  .left, .right {
+    position: static;
+  }
+
+  .aside {
+    max-width: 20rem;
+  }
+
+  /*.left { order: 1; }
+  .main { order: 2; }
+  .right { order: 3; }*/
+}

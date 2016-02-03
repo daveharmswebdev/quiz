@@ -59,54 +59,54 @@ $('document').ready(function() {
   q[4].explanation = 'Vegas alays wins';
 
   q[5] = Object.create(question);
-  q[5].question = '';
-  q[5].answerA = '';
-  q[5].answerB = '';
-  q[5].answerC = '';
-  q[5].answerD = '';
-  q[5].correct = '';
-  q[5].explanation = '';
+  q[5].question = 'What is the syntax for creating a javascript array?';
+  q[5].answerA = '( item1; item2; ... ; item n)';
+  q[5].answerB = '[ item1, item2, ... , item n ]';
+  q[5].answerC = '[ item1; item2; ... ; item n ]';
+  q[5].answerD = 'it really doesn\'t matter';
+  q[5].correct = 'b';
+  q[5].explanation = 'The proper syntax invales braces with array items seperated by commas.';
 
   q[6] = Object.create(question);
-  q[6].question = '';
-  q[6].answerA = '';
-  q[6].answerB = '';
-  q[6].answerC = '';
-  q[6].answerD = '';
-  q[6].correct = '';
-  q[6].explanation = '';
+  q[6].question = 'Which for loop is written correctly?';
+  q[6].answerA = 'for (var i = 10; i > 0; i--) { }';
+  q[6].answerB = 'for (var i = 10; i > 0; -i-) { }';
+  q[6].answerC = 'for (var i = 10; i > 0; i--) ()';
+  q[6].answerD = 'for loop (var i = 10; i > 0; i--) { }';
+  q[6].correct = 'a';
+  q[6].explanation = 'Answer B the var doesn\'t decrement. Answer C uses parenthesis twice, it should use curly braces for the function. And for loops do not use the word loop in the command.';
 
   q[7] = Object.create(question);
-  q[7].question = '';
-  q[7].answerA = '';
-  q[7].answerB = '';
-  q[7].answerC = '';
-  q[7].answerD = '';
-  q[7].correct = '';
-  q[7].explanation = '';
+  q[7].question = 'Who is the best QB of all time?';
+  q[7].answerA = 'Brady';
+  q[7].answerB = 'Montana';
+  q[7].answerC = 'Marino';
+  q[7].answerD = 'Peyton';
+  q[7].correct = 'a';
+  q[7].explanation = 'Don\'t be a retahd!';
 
   q[8] = Object.create(question);
-  q[8].question = '';
-  q[8].answerA = '';
-  q[8].answerB = '';
-  q[8].answerC = '';
-  q[8].answerD = '';
-  q[8].correct = '';
-  q[8].explanation = '';
+  q[8].question = 'Greatest football movie of all time?';
+  q[8].answerA = 'The Longest Yard';
+  q[8].answerB = 'Rudy';
+  q[8].answerC = 'The Little Giants';
+  q[8].answerD = 'All The Above';
+  q[8].correct = 'b';
+  q[8].explanation = 'Rudy Rudy Rudy';
 
   q[9] = Object.create(question);
-  q[9].question = '';
-  q[9].answerA = '';
-  q[9].answerB = '';
-  q[9].answerC = '';
-  q[9].answerD = '';
-  q[9].correct = '';
-  q[9].explanation = '';
+  q[9].question = 'Question';
+  q[9].answerA = 'a';
+  q[9].answerB = 'b';
+  q[9].answerC = 'c';
+  q[9].answerD = 'd';
+  q[9].correct = 'c';
+  q[9].explanation = 'C is the correct answer 75% of the time. This falls under the 75%.';
 
-  for (var i = 0; i < 10; i++) {
-    for (var prop in q[i]) {
-      console.log(prop + ' ' + q[i][prop]);
-    }
-  }
+  // for (var i = 0; i < 10; i++) {
+  //   for (var prop in q[i]) {
+  //     console.log(prop + ' ' + q[i][prop]);
+  //   }
+  // }
 
 });

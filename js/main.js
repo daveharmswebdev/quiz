@@ -124,16 +124,16 @@ $('document').ready(function() {
   createQuestions();
   populateBoxes();
 
-  // $('li').click(function() {
-  //   console.log($(this).children('span').attr('class'));
-  //   $('this').children('span').toggleClass('notselected');
-  // });
-
-  $('span').click(function() {
-    console.log(this);
-    console.log($('this').css('width'));
-    $('this').css('color','pink');
-    $('this').toggleClass('selected notselected');
+  $('li').click(function() {
+    $(this).children('span').toggleClass('notselected selected');
+    var newC = $(this).children('span').attr('class');
+    $(this).siblings().children('span').each( function() {
+      var otherC = $(this).attr('class');
+      if (otherC === 'selected') {
+        $(this).toggleClass('notselected selected');
+      }
+    });
+    console.log($(this).parents('div').attr('id'));
   });
 
 });

@@ -125,6 +125,7 @@ $('document').ready(function() {
   populateBoxes();
 
   $('li').click(function() {
+    console.log($(this).attr('class'));
     $(this).children('span').toggleClass('notselected selected');
     var newC = $(this).children('span').attr('class');
     $(this).siblings().children('span').each( function() {

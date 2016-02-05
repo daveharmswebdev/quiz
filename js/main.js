@@ -8,7 +8,13 @@ $('document').ready(function() {
     answerC: '',
     answerD: '',
     correct: '',
-    explanation: ''
+    userAnswer: '',
+    explanation: '',
+    gradeAnswer:function(){
+      console.log(this.correct);
+      console.log(this.userAnswer);
+      return (this.correct == this.userAnswer);
+    }
   };
 
   var q = [];
@@ -121,11 +127,30 @@ $('document').ready(function() {
     }
   };
 
+  var logAnswer = function(answer, question) {
+    question = question.slice(1,question.length);
+    q[question].userAnswer = answer;
+  };
+
+  var answerCount = function() {
+    var count = 0;
+    for (var i = 0; i < 10; i++) {
+      if (q[i].userAnswer.length>0) {
+          count += 1;
+      }
+    }
+    return count;
+  };
+
+  var displayCount = function(count) {
+    $('.counter').children('h1').html(count+'/10');
+  };
+
   createQuestions();
   populateBoxes();
 
   $('li').click(function() {
-    console.log($(this).attr('class'));
+    var testAnswer = $(this).attr('class');
     $(this).children('span').toggleClass('notselected selected');
     var newC = $(this).children('span').attr('class');
     $(this).siblings().children('span').each( function() {
@@ -134,7 +159,10 @@ $('document').ready(function() {
         $(this).toggleClass('notselected selected');
       }
     });
-    console.log($(this).parents('div').attr('id'));
+    var testQuestion = $(this).parents('div').attr('id');
+    logAnswer(testAnswer,testQuestion);
+    displayCount(answerCount());
+    console.log(q[testQuestion.slice(1,testQuestion.length)].gradeAnswer());
   });
 
 });

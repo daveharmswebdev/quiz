@@ -108,6 +108,18 @@ p {
     position: static;
   }
 
+  .counter, .timer {
+    position: fixed;
+  }
+
+  .counter {
+    margin: 0 -1rem;
+  }
+
+  .timer {
+    margin: 0 -2rem;
+  }
+
   .main {
     margin: 0;
   }

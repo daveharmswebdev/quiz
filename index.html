@@ -10,7 +10,7 @@
   <body>
     <div class="wrapper">
       <div class="container aside left">
-        <div>
+        <div class='timer'>
           <h1>10:00</h1>
         </div>
       </div>
@@ -18,7 +18,7 @@
         <div id='q0' class="item">
           <h3 class="question"></h3>
           <ul class="answers">
-            <li class="a"><span id='a1' class='notselected'></span><p></p></li>
+            <li class="a"><span class='notselected'></span><p></p></li>
             <li class="b"><span class='notselected'></span><p></p></li>
             <li class="c"><span class='notselected'></span><p></p></li>
             <li class="d"><span class='notselected'></span><p></p></li>
@@ -27,7 +27,7 @@
         <div id='q1' class="item">
           <h3 class="question"></h3>
           <ul class="answers">
-            <li class="a"><span class='selected'></span><p></p></li>
+            <li class="a"><span class='notselected'></span><p></p></li>
             <li class="b"><span class='notselected'></span><p></p></li>
             <li class="c"><span class='notselected'></span><p></p></li>
             <li class="d"><span class='notselected'></span><p></p></li>
@@ -98,7 +98,9 @@
         </div>
       </div>
       <div class="container aside right">
-        <h1>0/10</h1>
+        <div class="counter">
+          <h1>0/10</h1>
+        </div>
       </div>
     </div>
     <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>

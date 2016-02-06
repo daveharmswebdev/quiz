@@ -143,8 +143,77 @@ $('document').ready(function() {
     $('.counter').children('h1').html(count+'/10');
   };
 
+  var rightAnswers = function() {
+    var right = 0;
+    for (var i = 0; i<q.length; i++) {
+      if (q[i].gradeAnswer()===true) {
+        right += 1;
+      }
+    }
+    return right;
+  };
+
+  var wrongAnswers = function() {
+    var wrong = 0;
+    for (var i = 0; i<q.length; i++) {
+      if (q[i].gradeAnswer()===false) {
+        wrong += 1;
+      }
+    }
+    return wrong;
+  };
+
+  var getRightWrongString = function() {
+    var string = 'You answered ' + rightAnswers() + ' questions correctly.<br>You answered ' + wrongAnswers() + ' incorrectly.';
+    return string;
+  };
+
+  var getAnswersExplainedString = function() {
+    var string = '<li>test</li>';
+    return string;
+  };
+
   createQuestions();
   populateBoxes();
+
+  $('#start').click(function() {
+    console.log('startClick');
+  });
+
+  $('#test').click(function() {
+    console.log('click');
+    for (var i = 0; i<10; i++) {
+      q[i].userAnswer='c';
+    }
+    for (var n = 0; n<10; n++) {
+      console.log(q[n].userAnswer);
+      console.log(q[n].gradeAnswer());
+    }
+    displayCount(answerCount());
+    $('#submit').removeClass('disabled');
+  });
+
+  $('a.close').click(function(){
+    $('.overlay').fadeOut(1000);
+  });
+
+  $('#submit').click(function() {
+    console.log(rightAnswers());
+    console.log(wrongAnswers());
+    $('#correctWrong').append(getRightWrongString);
+    for (var i = 0; i < q.length; i++) {
+      if (q[i].gradeAnswer()===false) {
+        console.log('explain');
+        $('#answersExplained').append(getAnswersExplainedString());
+      }
+    }
+    $('.overlay').fadeIn(1000);
+  });
+
+  // $('#submit').off().on('click', function() {
+  //   console.log('click');
+  //   $('.overlay').fadeIn(1000);
+  // });
 
   $('li').click(function() {
     var testAnswer = $(this).attr('class');
@@ -162,11 +231,8 @@ $('document').ready(function() {
     if (answerCount()===10) {
       $('#submit').removeClass('disabled');
     }
-    // console.log(q[testQuestion.slice(1,testQuestion.length)].gradeAnswer());
-    $('#submit').off().on('click', function() {
-      console.log('click');
-    });
 
+    // console.log(q[testQuestion.slice(1,testQuestion.length)].gradeAnswer());
   });
 
 });

@@ -12,7 +12,8 @@
       <div class="container aside left">
         <div class='timer'>
           <h1 class='userDisplay'>10:00</h1>
-          <button class="button">Start Test</button>
+          <button id='start' class="button">Start Test</button>
+          <button id='test'>test</button>
         </div>
       </div>
       <div class="container main">
@@ -105,6 +106,21 @@
         </div>
       </div>
     </div>
+
+
+    <!-- Modal Information Box -->
+    <div class="overlay" id="modal">
+      <div class="explanation">
+        <h2>Results</h2>
+        <h3 id='correctWrong'></h3>
+        <div>
+          <p>Test Review: </p>
+          <ul id='answersExplained'></ul>
+          <a class="close" href="#">Finished</a>
+        </div>
+      </div>
+    </div>
+
     <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
   </body>

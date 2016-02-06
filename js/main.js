@@ -11,8 +11,6 @@ $('document').ready(function() {
     userAnswer: '',
     explanation: '',
     gradeAnswer:function(){
-      console.log(this.correct);
-      console.log(this.userAnswer);
       return (this.correct == this.userAnswer);
     }
   };
@@ -118,7 +116,6 @@ $('document').ready(function() {
     var headingID;
     for (var i = 0; i < q.length; i++ ) {
       headingID = '#q' + i;
-      console.log(headingID);
       $(headingID).children('h3.question').html(q[i].question);
       $(headingID).children('ul').children('li.a').children('p').html(q[i].answerA);
       $(headingID).children('ul').children('li.b').children('p').html(q[i].answerB);
@@ -162,7 +159,14 @@ $('document').ready(function() {
     var testQuestion = $(this).parents('div').attr('id');
     logAnswer(testAnswer,testQuestion);
     displayCount(answerCount());
-    console.log(q[testQuestion.slice(1,testQuestion.length)].gradeAnswer());
+    if (answerCount()===10) {
+      $('#submit').removeClass('disabled');
+    }
+    // console.log(q[testQuestion.slice(1,testQuestion.length)].gradeAnswer());
+    $('#submit').off().on('click', function() {
+      console.log('click');
+    });
+
   });
 
 });

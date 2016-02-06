@@ -40,6 +40,10 @@ html { font-size: 100%; }
   justify-content: center;
 }
 
+.container > h1 {
+  margin: 0;
+}
+
 .item {
   height: 16rem;
   width: 24rem;
@@ -71,6 +75,38 @@ html { font-size: 100%; }
   left: 0px;
   bottom: 0px;
   background-color: lightblue;
+}
+
+.userDisplay {
+  margin: 0 auto;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.button:hover {
+    background-color: #4CAF50;
+    color: white;
 }
 
 li {
@@ -110,14 +146,15 @@ p {
 
   .counter, .timer {
     position: fixed;
+    top: 5rem;
   }
 
   .counter {
-    margin: 0 -1rem;
+    margin: 0 -3.4rem;
   }
 
   .timer {
-    margin: 0 -2rem;
+    margin: 0 -4rem;
   }
 
   .main {
@@ -127,8 +164,4 @@ p {
   .aside {
     max-width: 20rem;
   }
-
-  /*.left { order: 1; }
-  .main { order: 2; }
-  .right { order: 3; }*/
 }

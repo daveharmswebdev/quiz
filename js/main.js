@@ -178,7 +178,7 @@ $('document').ready(function() {
   };
 
   var getRightWrongString = function() {
-    var string = 'You answered ' + rightAnswers() + ' questions correctly.<br>You answered ' + wrongAnswers() + ' incorrectly.';
+    var string = 'You answered ' + rightAnswers() + ' questions correctly. You answered ' + wrongAnswers() + ' incorrectly.';
     return string;
   };
 
@@ -230,7 +230,7 @@ $('document').ready(function() {
 
   $('#submit').click(function() {
     if (answerCount() === 10) {
-      $('#correctWrong').append(getRightWrongString);
+      $('#correctWrong').text(getRightWrongString);
       for (var i = 0; i < q.length; i++) {
         if (q[i].gradeAnswer()===false) {
           $('#answersExplained').append(getAnswersExplainedString(i));

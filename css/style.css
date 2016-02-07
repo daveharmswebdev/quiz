@@ -17,9 +17,16 @@ html { font-size: 100%; }
   box-sizing: border-box;
 }
 
+.color-primary-0 { color: #FA8400 }	/* Main Primary color */
+.color-primary-1 { color: #FFBE75 }
+.color-primary-2 { color: #FF9E31 }
+.color-primary-3 { color: #BC6300 }
+.color-primary-4 { color: #7F4300 }
+
 @import "compass/css3";
 
 /*style for hidden modal*/
+
 .overlay {
 	width: 100%;
 	height: 2000px;
@@ -122,10 +129,10 @@ html { font-size: 100%; }
 
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
-
+  background-color: #FF9E31;
   font-weight: bold;
   text-align: center;
-  border: 3px solid grey;
+//  border: 3px solid grey;
   justify-content: center;
 }
 
@@ -136,7 +143,7 @@ html { font-size: 100%; }
 .item {
   height: 16rem;
   width: 24rem;
-  background-color: red;
+  background-color: #FFBE75;
   text-align: left;
   margin: 1rem;
   padding: 0.75rem;
@@ -148,11 +155,11 @@ html { font-size: 100%; }
   width: 100%;
   padding: 1rem;
   margin: 0 auto;
+  background-color: #7F4300;
 }
 
 .left {
   position: fixed;
-  background-color: pink;
 }
 
 .main {
@@ -163,7 +170,6 @@ html { font-size: 100%; }
   position: fixed;
   left: 0px;
   bottom: 0px;
-  background-color: lightblue;
 }
 
 .userDisplay, .countdown {
@@ -171,9 +177,6 @@ html { font-size: 100%; }
 }
 
 .button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
@@ -185,7 +188,7 @@ html { font-size: 100%; }
     cursor: pointer;
     background-color: white;
     color: black;
-    border: 2px solid #4CAF50;
+    border: 2px solid black;
 }
 
 .disabled {
@@ -194,7 +197,7 @@ html { font-size: 100%; }
 }
 
 .button:hover {
-    background-color: #4CAF50;
+    background-color: #FFBE75;
     color: white;
 }
 

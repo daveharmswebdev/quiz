@@ -184,7 +184,6 @@ $('document').ready(function() {
 
   var getAnswersExplainedString = function(question) {
     var rightQuestion = 'answer' + q[question].correct;
-    console.log(rightQuestion);
     var string = '<li>';
     string += 'Qestion ' + (question+1) +'. The correct answer was ' + q[question].correct;
     string += ', ' + q[question][rightQuestion] + '. Rational: ' + q[question].explanation;
@@ -192,13 +191,22 @@ $('document').ready(function() {
     return string;
   };
 
-  // Question 1. The correst answer was a, the queen of england. You answered c.
-  // Rational: The Queen of England is a really big deal.
+  var resetQuiz = function() {
+    for (var i = 0; i < q.length; i++) {
+      q[i].userAnswer = '';
+      console.log(q[i].userAnswer);
+    }
+    $('#submit').addClass('disabled');
+    $('span').each(function() {
+      if ($(this).attr('class') === 'selected') {
+        $(this).toggleClass('selected notselected');
+      }
+    });
+  };
 
   createQuestions();
 
   $('#start').click(function() {
-    console.log('startClick');
     stopCountdown = false;
     var display =$('.countdown');
     populateBoxes();
@@ -206,13 +214,10 @@ $('document').ready(function() {
   });
 
   $('#test').click(function() {
-    console.log('click');
     for (var i = 0; i<10; i++) {
       q[i].userAnswer='C';
     }
     for (var n = 0; n<10; n++) {
-      console.log(q[n].userAnswer);
-      console.log(q[n].gradeAnswer());
     }
     displayCount(answerCount());
     $('#submit').removeClass('disabled');
@@ -220,23 +225,23 @@ $('document').ready(function() {
 
   $('a.close').click(function(){
     $('.overlay').fadeOut(1000);
+    resetQuiz();
   });
 
   $('#submit').click(function() {
-    console.log(rightAnswers());
-    console.log(wrongAnswers());
-    $('#correctWrong').append(getRightWrongString);
-    for (var i = 0; i < q.length; i++) {
-      if (q[i].gradeAnswer()===false) {
-        console.log('explain');
-        $('#answersExplained').append(getAnswersExplainedString(i));
+    if (answerCount() === 10) {
+      $('#correctWrong').append(getRightWrongString);
+      for (var i = 0; i < q.length; i++) {
+        if (q[i].gradeAnswer()===false) {
+          $('#answersExplained').append(getAnswersExplainedString(i));
+        }
       }
+      // $('.overlay').css('display','flex').hide().fadeIn(1000);
+      countdown(0);
+      $('.overlay').fadeIn(1000);
+      stopCountdown = true;
+      window.scrollTo(0,0);
     }
-    // $('.overlay').css('display','flex').hide().fadeIn(1000);
-    countdown(0);
-    $('.overlay').fadeIn(1000);
-    stopCountdown = true;
-    window.scrollTo(0,0);
   });
 
   // $('#submit').off().on('click', function() {

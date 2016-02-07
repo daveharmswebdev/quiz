@@ -1,5 +1,7 @@
 $('document').ready(function() {
   "use strict";
+  var q = [],
+      stopCountdown = false;
 
   var question = {
     question: '',
@@ -14,9 +16,6 @@ $('document').ready(function() {
       return (this.correct == this.userAnswer);
     }
   };
-
-  var q = [];
-
 
   var createQuestions = function() {
 
@@ -117,11 +116,26 @@ $('document').ready(function() {
     for (var i = 0; i < q.length; i++ ) {
       headingID = '#q' + i;
       $(headingID).children('h3.question').html(q[i].question);
-      $(headingID).children('ul').children('li.a').children('p').html(q[i].answerA);
-      $(headingID).children('ul').children('li.b').children('p').html(q[i].answerB);
-      $(headingID).children('ul').children('li.c').children('p').html(q[i].answerC);
-      $(headingID).children('ul').children('li.d').children('p').html(q[i].answerD);
+      $(headingID).children('ul').children('li.A').children('p').html(q[i].answerA);
+      $(headingID).children('ul').children('li.B').children('p').html(q[i].answerB);
+      $(headingID).children('ul').children('li.C').children('p').html(q[i].answerC);
+      $(headingID).children('ul').children('li.D').children('p').html(q[i].answerD);
     }
+  };
+
+  var countdown = function(seconds) {
+    var timer = seconds, countdownH1 = $('.countdown'), interval, min, sec;
+      interval = setInterval(function() {
+      timer--;
+      min = Math.floor(timer/60);
+      sec = timer - (min*60);
+      sec = sec < 10 ? '0'+sec : sec;
+      countdownH1.text(min + ':' +sec);
+      if (timer === 0 || stopCountdown === true) {
+        clearInterval(interval);
+        countdownH1.text('0:00');
+      }
+    }, 1000);
   };
 
   var logAnswer = function(answer, question) {
@@ -182,16 +196,19 @@ $('document').ready(function() {
   // Rational: The Queen of England is a really big deal.
 
   createQuestions();
-  populateBoxes();
 
   $('#start').click(function() {
     console.log('startClick');
+    stopCountdown = false;
+    var display =$('.countdown');
+    populateBoxes();
+    countdown(300);
   });
 
   $('#test').click(function() {
     console.log('click');
     for (var i = 0; i<10; i++) {
-      q[i].userAnswer='c';
+      q[i].userAnswer='C';
     }
     for (var n = 0; n<10; n++) {
       console.log(q[n].userAnswer);
@@ -215,7 +232,11 @@ $('document').ready(function() {
         $('#answersExplained').append(getAnswersExplainedString(i));
       }
     }
+    // $('.overlay').css('display','flex').hide().fadeIn(1000);
+    countdown(0);
     $('.overlay').fadeIn(1000);
+    stopCountdown = true;
+    window.scrollTo(0,0);
   });
 
   // $('#submit').off().on('click', function() {

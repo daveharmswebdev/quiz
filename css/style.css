@@ -22,7 +22,7 @@ html { font-size: 100%; }
 /*style for hidden modal*/
 .overlay {
 	width: 100%;
-	height: 100%;
+	height: 2000px;
 	color: #fff;
 	background: #e74c3c;
 	position: absolute;
@@ -166,7 +166,7 @@ html { font-size: 100%; }
   background-color: lightblue;
 }
 
-.userDisplay {
+.userDisplay, .countdown {
   margin: 0 auto;
 }
 

@@ -89,7 +89,7 @@ $('document').ready(function() {
     q[7].answerC = 'Marino';
     q[7].answerD = 'Peyton';
     q[7].correct = 'A';
-    q[7].explanation = 'Don\'t be a retahd!';
+    q[7].explanation = 'Brady. Go PATS!';
 
     q[8] = Object.create(question);
     q[8].question = 'Greatest football movie of all time?';
